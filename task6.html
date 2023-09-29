@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    height: 100vh;
+    background:rgb(255, 193, 228);
+    margin: 5px;
+    padding: 5px;
+    }
+    h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(146, 35, 249);
+        text-decoration:underline;
+    }
+    
+    .container{
+    background-color:rgb(255, 240, 146);
+    width: 500px;
+    height: 350px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 5px 5px;
+    padding: 20px;
+    }
+    .image-container{
+    position: relative;
+    }
+    
+    img{
+    position: relative;
+    width: 500px;
+    height: 350px;
+    display: none;
+    }
+    
+    .active{
+    display: block;
+    }
+    
+    #prev,#next{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    background-color:rgb(173, 252, 214);
+    color:black;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border: none;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: bolder;
+      
+    }
+    #prev{
+    left: 1px;
+    }
+    
+    #next{
+    right: 1px;
+    }
+</style>
+<body>
+    <h1>SLIDER</h1>
+    <div class="container">
+        <div class="image-container">
+        <img src="./Images/dress.jpg" id="content1" class="active" width="400px" height="300px">
+        <img src="./Images/Jeans.jpg" id="content2" width="300px" height="400px">
+        <img src="./Images/jewellery.jpg" id="content3" width="300px" height="400px">
+        <img src="./Images/saree.jpg" id="content4" width="300px" height="400px">
+        <img src="./Images/Shirt.jpg" id="content5"width="300px" height="400px">
+        <img src="./Images/shoes.jpg" id="content6"width="300px" height="400px">
+        </div>
+        <button id="prev" onclick="prev()"> &lt; </button>
+        <button id="next" onclick="next()"> &gt; </button>
+    </div>
+</body>
+<script>
+    const images = document.querySelectorAll(".image-container img");
+let i = 0; 
+let j = images.length; 
+
+function next(){
+document.getElementById("content" + (i+1)).style.display="none"
+
+i = ( j + i + 1) % j;
+
+  
+
+  
+document.getElementById("content" + (i+1)).style.display="block"
+
+    
+    
+   
+} 
+
+function prev(){
+document.getElementById("content" + (i+1)).style.display="none"
+i = (j + i - 1) % j;
+    
+document.getElementById("content" + (i+1)).style.display="block"
+}
+
+
+
+
+</script>
+</html>
